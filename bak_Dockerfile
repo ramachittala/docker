@@ -1,0 +1,9 @@
+FROM centos:latest
+MAINTAINER Ram Kumar
+RUN yum update -y 
+RUN yum install httpd -y
+RUN mkdir -p /var/www/html
+ADD index.html /var/www/html
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
